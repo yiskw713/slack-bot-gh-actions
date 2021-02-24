@@ -25,6 +25,6 @@ jobs:
 
       - name: Send message
         run:
-          poetry run python notify.py --slack_api_token ${{ secrets.SLACK_API_TOKEN }}
+          poetry run python send_message.py --slack_api_token ${{ secrets.SLACK_API_TOKEN }}
 
 
