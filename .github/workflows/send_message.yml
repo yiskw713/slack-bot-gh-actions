@@ -1,0 +1,30 @@
+name: Send a message to slack
+
+on:
+  schedule:
+    # UTC times using POSIX cron syntax.
+    - cron:  '0 4 * * 0'
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Run image
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.1.2
+
+      - name: install dependencies
+        run: poetry install
+
+      - name: Send message
+        run:
+          poetry run python notify.py --slack_api_token ${{ secrets.SLACK_API_TOKEN }}
+
+
