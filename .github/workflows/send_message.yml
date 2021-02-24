@@ -1,9 +1,9 @@
 name: Send a message to slack
 
 on:
-  schedule:
-    # UTC times using POSIX cron syntax.
-    - cron:  '0 4 * * 0'
+  # uncomment the below two lines if you want to schedule a workflow
+  # schedule:
+    # - cron:  '0 4 * * 0'  # UTC times using POSIX cron syntax.
   workflow_dispatch:
 
 jobs:
