@@ -24,4 +24,4 @@ if __name__ == "__main__":
     message = "a message from slack bot."
 
     slack = Slacker(slack_api_token)
-    slack.chat.post_message("#overtime-request", message, as_user=True)
+    slack.chat.post_message(CHANNEL, message, as_user=True)
